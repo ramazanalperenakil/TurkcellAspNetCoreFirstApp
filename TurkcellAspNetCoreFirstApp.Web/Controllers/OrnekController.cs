@@ -4,20 +4,49 @@ namespace TurkcellAspNetCoreFirstApp.Web.Controllers
 {
     public class OrnekController : Controller
     {
+        public  class Product 
+        {
+            public int Id { get; set; }
+            public string Name { get; set; }
+        }
         public IActionResult Index()
         {
-            ViewBag.name = "ASP Net Core";
-            ViewBag.name = new List<string>() {"Ali","Hasan","Mehmet" };
-            ViewData["NameList"] = new List<string>() {"Ali","Hasan","Mehmet" };
-            ViewData["age"] = 22;
 
+
+            ViewBag.name = "ASP Net Core";
+            ViewBag.name = new List<string>() { "Ali", "Hasan", "Mehmet" };
+            ViewData["NameList"] = new List<string>() { "Ali", "Hasan", "Mehmet" };
+            ViewData["age"] = 22;
+            TempData["tasiyici"] = "Taşınıyor";
 
             ViewBag.Person = (new { Id = 1, Name = "Kalem 1", Age = 100 });
             return View();
         }
+
+        public IActionResult Listeleme()
+        {
+            var ProductList = new List<Product>()
+            {
+                new Product() { Id = 1, Name ="Kalem" },
+                new Product() { Id = 2, Name ="Defter" },
+                new Product() { Id = 3, Name ="Silgi" }
+            };
+
+            
+            return View(ProductList);
+        }
+
+
         public IActionResult Index2()
         {
             return RedirectToAction("Index", "Ornek");
+            /*return View()*/
+             
+        }
+        public IActionResult Index3()
+        {
+            return View();
+           
             /*return View()*/;
         }
         public IActionResult ParametreView(int id)

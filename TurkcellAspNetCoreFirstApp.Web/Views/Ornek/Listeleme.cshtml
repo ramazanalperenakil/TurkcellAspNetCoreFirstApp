@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Listeleme";
+}
+@model List<TurkcellAspNetCoreFirstApp.Web.Controllers.OrnekController.Product>;
+
+
+
+@foreach (var item in Model)
+{
+    <h1>@item.Id - @item.Name</h1><br />
+}
