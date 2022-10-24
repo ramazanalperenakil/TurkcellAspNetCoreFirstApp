@@ -4,7 +4,7 @@ namespace TurkcellAspNetCoreFirstApp.Web.Controllers
 {
     public class OrnekController : Controller
     {
-        public  class Product 
+        public class ProductOld
         {
             public int Id { get; set; }
             public string Name { get; set; }
@@ -25,11 +25,11 @@ namespace TurkcellAspNetCoreFirstApp.Web.Controllers
 
         public IActionResult Listeleme()
         {
-            var ProductList = new List<Product>()
+            var ProductList = new List<ProductOld>()
             {
-                new Product() { Id = 1, Name ="Kalem" },
-                new Product() { Id = 2, Name ="Defter" },
-                new Product() { Id = 3, Name ="Silgi" }
+                new ProductOld() { Id = 1, Name ="Kalem" },
+                new ProductOld() { Id = 2, Name ="Defter" },
+                new ProductOld() { Id = 3, Name ="Silgi" }
             };
 
             
